@@ -1,0 +1,45 @@
+---
+const projects = [
+  {
+    name: "Codeyak",
+    description: "AI-powered code review agent with customizable guidelines.",
+    tech: ["Public", "Python"],
+    url: "https://github.com/ai-rayven/codeyak",
+    logo: "/codeyak_logo.png",
+    logoSize: "w-14 h-14",
+  },
+  {
+    name: "Worx by Liftworx Labs",
+    description: "Mobile app for forklift/heavy equipment mechanics, launching to 80 beta users soon.",
+    tech: ["Private", "React Native", "C#"],
+    url: "https://github.com/worxai",
+    logo: "/worx_logo.png",
+    logoSize: "w-18 h-18 -ml-2",
+  },
+];
+---
+
+<section>
+  <h2 class="text-2xl font-semibold mb-6">Projects</h2>
+  <div class="grid grid-cols-1 gap-4">
+    {projects.map((project) => (
+      <a
+        href={project.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-start gap-4 rounded-lg border border-gray-200 p-6 hover:shadow-md transition-shadow"
+      >
+        <img src={project.logo} alt="" class:list={[project.logoSize, "rounded-lg object-contain shrink-0 mt-0.5"]} />
+        <div>
+          <h3 class="font-semibold">{project.name}</h3>
+          <p class="text-gray-600 text-sm mt-1">{project.description}</p>
+          <div class="flex flex-wrap gap-2 mt-3">
+            {project.tech.map((t) => (
+              <span class="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-500">{t}</span>
+            ))}
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>

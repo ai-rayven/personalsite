@@ -1,0 +1,107 @@
+---
+interface TechItem {
+  name: string;
+  icon?: string; // simple-icons slug
+  iconUrl?: string; // full URL for icons not in simple-icons
+}
+
+interface Category {
+  label: string;
+  items: TechItem[];
+}
+
+const categories: Category[] = [
+  {
+    label: "Languages",
+    items: [
+      { name: "C#", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg" },
+      { name: "Python", icon: "python" },
+      { name: "TypeScript", icon: "typescript" },
+      { name: "Java", icon: "openjdk" },
+      { name: "C", icon: "c" },
+      { name: "Rust", icon: "rust" },
+    ],
+  },
+  {
+    label: "AI",
+    items: [
+      { name: "LangGraph", icon: "langgraph" },
+      { name: "PyTorch", icon: "pytorch" },
+      { name: "HuggingFace", icon: "huggingface" },
+      { name: "Anthropic", icon: "anthropic" },
+      { name: "Gemini", icon: "googlegemini" },
+      { name: "OpenAI" },
+    ],
+  },
+  {
+    label: "Frontend",
+    items: [
+      { name: "React", icon: "react" },
+      { name: "React Native", icon: "react" },
+      { name: "Angular", icon: "angular" },
+      { name: "Astro", icon: "astro" },
+    ],
+  },
+  {
+    label: "Data & Search",
+    items: [
+      { name: "PostgreSQL", icon: "postgresql" },
+      { name: "MySQL", icon: "mysql" },
+      { name: "MongoDB", icon: "mongodb" },
+      { name: "Redis", icon: "redis" },
+      { name: "Elasticsearch", icon: "elasticsearch" },
+      { name: "Kafka", icon: "apachekafka" },
+      { name: "Weaviate" },
+    ],
+  },
+  {
+    label: "Cloud & Infrastructure",
+    items: [
+      { name: "AWS", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+      { name: "Azure", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" },
+      { name: "GCP", icon: "googlecloud" },
+      { name: "Kubernetes", icon: "kubernetes" },
+      { name: "Docker", icon: "docker" },
+      { name: "Git", icon: "git" },
+      { name: "Linux", iconUrl: "https://cdn.simpleicons.org/linux/333333" },
+      { name: "GitLab", icon: "gitlab" },
+      { name: "GitHub", icon: "github" },
+    ],
+  },
+];
+
+function getIconUrl(item: TechItem): string | null {
+  if (item.icon) return `https://cdn.simpleicons.org/${item.icon}`;
+  if (item.iconUrl) return item.iconUrl;
+  return null;
+}
+---
+
+<section>
+  <h2 class="text-2xl font-semibold mb-6">Tech Stack</h2>
+  <div class="space-y-5">
+    {categories.map((category) => (
+      <div>
+        <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">{category.label}</h3>
+        <div class="flex flex-wrap gap-2">
+          {category.items.map((item) => {
+            const iconUrl = getIconUrl(item);
+            return (
+              <span class="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-sm text-gray-700 font-medium">
+                {iconUrl && (
+                  <img
+                    src={iconUrl}
+                    alt=""
+                    class="w-4 h-4"
+                    loading="lazy"
+                  />
+                )}
+                {item.name}
+              </span>
+            );
+          })}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

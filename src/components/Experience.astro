@@ -1,0 +1,57 @@
+---
+const jobs = [
+  {
+    title: "Tech Lead, AI",
+    company: "CallMiner",
+    period: "Apr 2025 - Present",
+    bullets: [
+      "Lead engineers building production AI systems for enterprise conversation analytics, serving Fortune 500 clients processing millions of interactions",
+      "Architected multi-agent framework that became core AI infrastructure",
+      "Architected replacement of legacy classifier with bespoke LLM-based approach, cutting operational costs by 75%",
+      "Built unsupervised ML solution using clustering and custom embeddings to surface conversation themes at scale",
+      "Established LLM observability for monitoring and optimization",
+    ],
+  },
+  {
+    title: "Development Team Lead",
+    company: "CallMiner",
+    period: "Sep 2021 - Apr 2025",
+    bullets: [
+      "Led full-stack team of engineers building features for conversation analytics apps",
+      "Architected the org's first RAG pipeline and AI assistant, laying foundation for multi-agent infrastructure used today",
+      "Modernized summarization (BERT to LLMs) and redaction (pattern matching to AI)",
+      "Impact Award Winner"
+    ],
+  },
+  {
+    title: "Software Developer",
+    company: "CallMiner",
+    period: "Apr 2018 - Sep 2021",
+    bullets: [
+      "Worked on the real-time call analytics engine, a distributed system processing high-volume customer interaction data",
+      "Contributed to ML pipeline architecture using FastText for intelligent search",
+      "Re-architected the testing framework, accelerating execution. Still in use by the team today",
+      "Rising Star Award"
+    ],
+  },
+];
+---
+<section>
+  <h2 class="text-2xl font-semibold mb-6">Experience</h2>
+  <div class="space-y-6">
+    {jobs.map((job) => (
+      <div>
+        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+          <h3 class="font-medium">{job.title}</h3>
+          <span class="text-sm text-gray-400 shrink-0">{job.period}</span>
+        </div>
+        <p class="text-sm text-accent font-medium">{job.company}</p>
+        <ul class="text-gray-600 text-sm mt-1 list-disc list-inside space-y-1">
+          {job.bullets.map((bullet) => (
+            <li>{bullet}</li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>
