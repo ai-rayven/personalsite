@@ -3,7 +3,7 @@ title: "I built a repair manual AI Assistant with small models"
 description: "My field notes for the build small hackathon by hugging face and gradio"
 date: 2026-06-14
 ---
-## Foreword 
+## Motivation
 I am a strong believer that small models are the next frontier and almost vital for businesses to invest in. Models hosted on the cloud can change at any time and you are at the mercy of their deprecation windows (I've experienced this first hand, luckily evals are a huge help here).
 
 The [build small hackathon by gradio and hugging face](https://huggingface.co/build-small-hackathon) was a great opportunity for me to try and build something with these models since I've been spoiled by the raw intelligence of cloud models for a while now.
